@@ -4,6 +4,11 @@ CityScout is a tool designed to help users identify safe cities based on specifi
 
 Group members: Abhay Sastry, Jessica Eggers, Kunal Mohindra, Rameen Gauher, Sai Karyekar, Suraksha Vinod
 
+Contribution: 
+- Abhay and Suraksha: Data Processing
+- Kunal and Rameen: Machine Learning
+- Jessica and Sai: Visualization
+
 ## Introduction
 
 Safety is a top priority when choosing a place to live or visit. While general crime statistics are widely available, they often fail to address specific demographic concerns. CityScout bridges this gap by providing tailored safety information based on user-selected criteria, such as crime rates against women, children, or tourists.
