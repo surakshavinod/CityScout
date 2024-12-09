@@ -1,0 +1,18 @@
+# Dolt SQL Commands run in terminal for each table
+# Each SQL query was run on the fbi_nibrs database cloned from DoltHub
+# For efficiency, the created tables below were joined and filtered using PySpark in the script data_merge_and_clean.ipynb
+
+# Cloning Command:
+dolt clone fbi-nibrs
+
+dolt sql -r csv -q 'SELECT victim_id, offense_id FROM nibrs_victim_offense WHERE DATA_YEAR BETWEEN 2011 AND 2021' > victim_offense_2011_2021NEW.csv
+
+dolt sql -r csv -q 'SELECT offense_type_id, offense_name, offense_category_name FROM nibrs_offense_type' > offense_type_name_2011_2021NEW.csv
+
+dolt sql -r csv -q 'SELECT offense_id, incident_id, offense_type_id FROM nibrs_offense WHERE DATA_YEAR BETWEEN 2011 AND 2021' > offense_2011_2021NEW.csv
+
+dolt sql -r csv -q 'SELECT incident_id, agency_id FROM nibrs_incident WHERE DATA_YEAR BETWEEN 2011 AND 2021' > incident_2011_2021NEW.csv    
+
+dolt sql -r csv -q 'SELECT agency_id, city_name, primary_county, state_abbr, state_id, population FROM cde_agencies WHERE DATA_YEAR BETWEEN 2011 AND 2021' > cde_agencies_2011_2021_NEW.csv
+
+dolt sql -r csv -q 'SELECT * FROM nibrs_victim WHERE DATA_YEAR BETWEEN 2017 AND 2021 AND AGE_NUM IS NOT NULL AND SEX_CODE IS NOT NULL AND RACE_ID IS NOT NULL AND RACE_ID != 0 AND ETHNICITY_ID IS NOT NULL AND RESIDENT_STATUS_CODE IS NOT NULL' >  victim_table_2011_2021.csv
